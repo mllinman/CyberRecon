@@ -1,0 +1,8 @@
+CyberRecon Suite v1.3 Signature Hash Manifest
+
+CyberReconSuite_v1.3_RC.exe
+SHA256: 97cac1b4f36a619e67ed3bfabb8ed139a31e3e0e4fbb3f46e1af1b477ffc9328
+
+CyberReconSuite_v1.3_RC.AppImage
+SHA256: 4a6d55719ca23bf51d48a7c3002d6b4e2965db42e9dad2bde76c70128be1b2a6
+
