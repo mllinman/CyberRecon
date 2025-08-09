@@ -10,7 +10,11 @@ SolidCompression=yes
 [Files]
 ; App
 Source: "CyberReconSuite_v1.3_Alpha_RC.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "updater.py"; DestDir: "{app}"; Flags: ignoreversion
+; (Already including docs + exe lines you have)
 
+; Optional: set modules dir under ProgramData to avoid admin for updates
+; Use this if you prefer: {commonappdata}\CyberReconSuite\modules
 ; Docs
 Source: "docs\Testing_Checklist.pdf"; DestDir: "{app}\docs"; Flags: ignoreversion
 Source: "docs\Expanded_Roadmap.pdf"; DestDir: "{app}\docs"; Flags: ignoreversion
@@ -31,3 +35,5 @@ Name: "desktopicon"; Description: "Create a &desktop icon"; GroupDescription: "A
 
 [Run]
 Filename: "{app}\CyberReconSuite_v1.3_Alpha_RC.exe"; Description: "Launch CyberRecon Suite"; Flags: nowait postinstall skipifsilent
+; Windows Task Scheduler - check daily at logon (optional)
+; Filename: "schtasks"; Parameters: "/Create /SC DAILY /TN ""CyberReconUpdater"" /TR ""\""{app}\CyberReconSuite_v1.3_Alpha_RC.exe\"\" --check-updates-silent"" /RL HIGHEST /F"; Flags: runhidden shellexec
