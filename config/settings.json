@@ -1,0 +1,10 @@
+{
+  "app_name": "CyberRecon Suite",
+  "version": "1.4.0-rc1",
+  "theme": { "base": "dark-slate", "accent": "orange" },
+  "feature_flags": {
+    "siem": true, "edr": true, "soar": true, "pentest": true, "dlp": true,
+    "threatintel": true, "compliance": true, "firewall": true, "netconfig": true,
+    "cloud": true, "forensics": true, "vulnmgmt": true
+  }
+}

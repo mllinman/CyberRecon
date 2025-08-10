@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cyberrecon-suite"
+version = "1.4.0rc1"
+description = "CyberRecon Suite — mockup-matched desktop app (PyQt) for SIEM/EDR/SOAR/pentest demos"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{name="CyberRecon"}]
+dependencies = [
+  "PyQt5>=5.15",
+  "psutil>=5.9"
+]
+
+[project.scripts]
+cyberrecon = "src.main:run"

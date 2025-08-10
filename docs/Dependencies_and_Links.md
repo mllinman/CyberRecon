@@ -1,0 +1,13 @@
+# External Tooling (Optional)
+- Wireshark (tshark) — https://www.wireshark.org/
+- Nmap — https://nmap.org/
+- Snort — https://www.snort.org/
+- Wazuh — https://wazuh.com/
+- ELK Stack — https://www.elastic.co/what-is/elk-stack
+- Splunk — https://www.splunk.com/
+- Greenbone/OpenVAS — https://www.greenbone.net/en/community-edition/
+- Nikto — https://cirt.net/Nikto2
+- sqlmap — https://sqlmap.org/
+- recon-ng — https://github.com/lanmaster53/recon-ng
+- TShark: https://www.wireshark.org/ (install, ensure tshark is on PATH)
+- Snort (optional to generate logs): https://www.snort.org/
