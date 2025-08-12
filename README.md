@@ -1,4 +1,4 @@
-# CyberRecon Suite — Mockup-Matched Starter (v1.4)
+# CyberRecon Suite
 
 Dark slate + orange theme. Tabs: Dashboard, SIEM, EDR, SOAR, Pentest, DLP,
 Threat Intel, Compliance, Firewall, Net Config, Cloud, Forensics, Vuln Mgmt.

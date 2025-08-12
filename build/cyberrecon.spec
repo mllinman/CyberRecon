@@ -1,4 +1,4 @@
-# PyInstaller spec for CyberRecon Suite (mockup-matched starter)
+# PyInstaller spec for CyberRecon Suite
 from PyInstaller.utils.hooks import collect_submodules
 a = Analysis(['src/main.py'],
              pathex=['.'],
