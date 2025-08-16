@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QTextEdit, QPushButton
 from PyQt5.QtCore import QTimer
 import datetime, random
+import logging
 log = logging.getLogger(__name__)
 class SIEM(QWidget):
     def __init__(self):
@@ -17,4 +18,3 @@ class SIEM(QWidget):
         sev = random.choice(["OK","WARN","HIGH"])
         color = {"OK":"#8BC34A","WARN":"#FFC107","HIGH":"#F44336"}[sev]
         self.out.append(f"<span style='color:{color};'>[{now}] {sev}</span> <span style='color:#bbb'>Threat {random.randint(1000,9999)} on host SRV{random.randint(1,50)}</span>")
-src/modules/edr.py

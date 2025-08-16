@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QTextEdit
 import socket
+import logging
 log = logging.getLogger(__name__)
 class NetConfig(QWidget):
     def __init__(self):

@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QTextEdit, QPushButton
 import re
+import logging
 log = logging.getLogger(__name__)
 SAMPLE = [
     "User uploaded report with SSN 123-45-6789 to external share.",

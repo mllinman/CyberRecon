@@ -57,29 +57,29 @@ class Shell(QWidget):
         lay = QVBoxLayout(self); lay.setContentsMargins(0,0,0,0)
         lay.addWidget(header(cfg.get("app_name"), cfg.get("version")))
         tabs = QTabWidget()
-        tabs.addTab(lazy("modules.settings","Settings")(), "Settings")
-        tabs.addTab(lazy("modules.dashboard","Dashboard")(), "Dashboard")
-        tabs.addTab(lazy("modules.nmap_integration","NmapIntegration")(), "Nmap")
-        tabs.addTab(lazy("modules.siem","SIEM")(), "SIEM")
-        tabs.addTab(lazy("modules.edr","EDR")(), "EDR")
-        tabs.addTab(lazy("modules.soar","SOAR")(), "SOAR")
-        tabs.addTab(lazy("modules.pentest","Pentest")(), "Pentest")
-        tabs.addTab(lazy("modules.dlp","DLP")(), "DLP")
-        tabs.addTab(lazy("modules.threatintel","ThreatIntel")(), "Threat Intel")
-        tabs.addTab(lazy("modules.compliance","Compliance")(), "Compliance")
-        tabs.addTab(lazy("modules.firewall","Firewall")(), "Firewall")
-        tabs.addTab(lazy("modules.netconfig","NetConfig")(), "Net Config")
-        tabs.addTab(lazy("modules.cloud","Cloud")(), "Cloud")
-        tabs.addTab(lazy("modules.forensics","Forensics")(), "Forensics")
-        tabs.addTab(lazy("modules.vulnmgmt","VulnMgmt")(), "Vuln Mgmt")
+        tabs.addTab(lazy("addons.modules.settings","Settings")(), "Settings")
+        tabs.addTab(lazy("addons.modules.dashboard","Dashboard")(), "Dashboard")
+        tabs.addTab(lazy("addons.modules.nmap_integration","NmapIntegration")(), "Nmap")
+        tabs.addTab(lazy("addons.modules.siem","SIEM")(), "SIEM")
+        tabs.addTab(lazy("addons.modules.edr","EDR")(), "EDR")
+        tabs.addTab(lazy("addons.modules.soar","SOAR")(), "SOAR")
+        tabs.addTab(lazy("addons.modules.pentest","Pentest")(), "Pentest")
+        tabs.addTab(lazy("addons.modules.dlp","DLP")(), "DLP")
+        tabs.addTab(lazy("addons.modules.threatintel","ThreatIntel")(), "Threat Intel")
+        tabs.addTab(lazy("addons.modules.compliance","Compliance")(), "Compliance")
+        tabs.addTab(lazy("addons.modules.firewall","Firewall")(), "Firewall")
+        tabs.addTab(lazy("addons.modules.netconfig","NetConfig")(), "Net Config")
+        tabs.addTab(lazy("addons.modules.cloud","Cloud")(), "Cloud")
+        tabs.addTab(lazy("addons.modules.forensics","Forensics")(), "Forensics")
+        tabs.addTab(lazy("addons.modules.vulnmgmt","VulnMgmt")(), "Vuln Mgmt")
         lay.addWidget(tabs)
         # Dynamic add-ons
-addons_dir = os.path.join(os.getcwd(), "addons", "modules")
-for widget_cls, label in discover_addons(addons_dir):
-    try:
-        tabs.addTab(widget_cls(), label)
-    except Exception as e:
-        print(f"[addon loader] could not instantiate {label}: {e}")
+        addons_dir = os.path.join(os.getcwd(), "addons", "modules")
+        for widget_cls, label in discover_addons(addons_dir):
+            try:
+                tabs.addTab(widget_cls(), label)
+            except Exception as e:
+                print(f"[addon loader] could not instantiate {label}: {e}")
 
 class Main(QMainWindow):
     def __init__(self):
