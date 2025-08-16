@@ -17,7 +17,8 @@ SolidCompression=yes
 DisableProgramGroupPage=yes
 
 [Files]
-Source: "..\CyberReconSuite_dist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\dist\CyberReconSuite_dist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\CyberReconSuite_v1_4\docs\DEPENDENCIES.txt"; DestDir: "{app}\docs"; Flags: ignoreversion
 
 [Icons]
 Name: "{commondesktop}\CyberRecon Suite"; Filename: "{app}\CyberReconSuite.exe"; Tasks: desktopicon

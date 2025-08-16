@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QTextEdit, QPushButton
 import random
+import logging
 log = logging.getLogger(__name__)
 FEEDS = ["OTX","Abuse.ch","MISP"]
 

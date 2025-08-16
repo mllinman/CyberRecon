@@ -1,9 +1,9 @@
 # PyInstaller spec for CyberRecon Suite
 from PyInstaller.utils.hooks import collect_submodules
-a = Analysis(['src/main.py'],
-             pathex=['.'],
+a = Analysis(['../src/util/main.py'],
+             pathex=['..'],
              binaries=[],
-             datas=[('assets', 'assets'), ('config', 'config'), ('docs', 'docs'),('addons','addons')],
+             datas=[('../assets', 'assets'), ('../config', 'config'), ('../CyberReconSuite_v1_4/docs', 'docs'),('../addons','addons')],
              hiddenimports=collect_submodules('PyQt5'),
              hookspath=[],
              runtime_hooks=[],

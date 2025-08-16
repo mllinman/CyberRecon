@@ -1,3 +1,4 @@
 @echo off
+set PYTHONPATH=..\..\src
 python -m pip install -r ..\..\requirements.txt
-python ..\..\src\main.py
+python -m util.main

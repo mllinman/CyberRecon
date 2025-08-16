@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QTextEdit, QPushButton
+import logging
 log = logging.getLogger(__name__)
 class SOAR(QWidget):
     def __init__(self):
