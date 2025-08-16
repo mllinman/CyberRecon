@@ -1,2 +1,6 @@
-PyQt5>=5.15
-psutil>=5.9
+PyQt5
+scapy
+pybluez
+requests
+psutil
+packaging
