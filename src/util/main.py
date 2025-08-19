@@ -1,14 +1,21 @@
 import os, sys, json
+if getattr(sys, 'frozen', False):
+    application_path = sys._MEIPASS
+    sys.path.insert(0, application_path)
+else:
+    application_path = os.path.dirname(os.path.abspath(__file__))
+    sys.path.insert(0, os.path.abspath(os.path.join(application_path, '..', '..')))
+
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QHBoxLayout, QTabWidget, QStatusBar
 import logging
-from util.logging_config import setup_logging
+from src.util.logging_config import setup_logging
 
 setup_logging()
 log = logging.getLogger(__name__)
 log.info("CyberRecon starting…")
 from PyQt5.QtGui import QPalette, QColor, QIcon
 from PyQt5.QtCore import Qt
-from util.addon_loader import discover_addons
+from src.util.addon_loader import discover_addons
 import os
 
 def load_cfg():
