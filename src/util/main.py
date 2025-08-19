@@ -1,4 +1,14 @@
 import os, sys, json
+if getattr(sys, 'frozen', False):
+    # If the application is run as a bundle, the PyInstaller bootloader
+    # extends the sys module by a flag frozen=True and sets the app
+    # path into variable _MEIPASS'.
+    application_path = sys._MEIPASS
+    sys.path.insert(0, application_path)
+else:
+    application_path = os.path.dirname(os.path.abspath(__file__))
+    sys.path.insert(0, os.path.abspath(os.path.join(application_path, '..', '..')))
+
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QHBoxLayout, QTabWidget, QStatusBar
 import logging
 from util.logging_config import setup_logging
