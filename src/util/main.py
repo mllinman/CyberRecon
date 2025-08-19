@@ -1,11 +1,4 @@
 import os, sys, json
-if getattr(sys, 'frozen', False):
-    application_path = sys._MEIPASS
-    sys.path.insert(0, application_path)
-else:
-    application_path = os.path.dirname(os.path.abspath(__file__))
-    sys.path.insert(0, os.path.abspath(os.path.join(application_path, '..', '..')))
-
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QHBoxLayout, QTabWidget, QStatusBar
 import logging
 from src.util.logging_config import setup_logging
