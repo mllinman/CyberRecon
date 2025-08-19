@@ -17,21 +17,13 @@ def load_cfg():
     except Exception:
         return {"app_name": "CyberRecon Suite", "version": "1.4.0-rc1", "theme": {"base":"dark-slate","accent":"orange"}}
 
-def apply_theme(app, cfg):
-    accent = cfg.get("theme", {}).get("accent","orange")
-    palette = QPalette()
-    palette.setColor(QPalette.Window, QColor(24,26,27))
-    palette.setColor(QPalette.WindowText, Qt.white)
-    palette.setColor(QPalette.Base, QColor(20,20,20))
-    palette.setColor(QPalette.AlternateBase, QColor(35,35,35))
-    palette.setColor(QPalette.Text, Qt.white)
-    palette.setColor(QPalette.Button, QColor(45,45,45))
-    palette.setColor(QPalette.ButtonText, Qt.white)
-    accents = {"orange":(255,153,0),"green":(76,175,80),"red":(244,67,54),"blue":(33,150,243),"white":(240,240,240)}
-    r,g,b = accents.get(accent,(255,153,0))
-    palette.setColor(QPalette.Highlight, QColor(r,g,b))
-    palette.setColor(QPalette.HighlightedText, Qt.black)
-    app.setPalette(palette)
+def apply_stylesheet(app):
+    stylesheet = ""
+    qss_path = os.path.join(os.getcwd(), "assets", "style.qss")
+    if os.path.exists(qss_path):
+        with open(qss_path, "r") as f:
+            stylesheet = f.read()
+    app.setStyleSheet(stylesheet)
 
 class Badge(QLabel):
     def __init__(self, text, color):
@@ -57,21 +49,31 @@ class Shell(QWidget):
         lay = QVBoxLayout(self); lay.setContentsMargins(0,0,0,0)
         lay.addWidget(header(cfg.get("app_name"), cfg.get("version")))
         tabs = QTabWidget()
-        tabs.addTab(lazy("addons.modules.settings","Settings")(), "Settings")
-        tabs.addTab(lazy("addons.modules.dashboard","Dashboard")(), "Dashboard")
-        tabs.addTab(lazy("addons.modules.nmap_integration","NmapIntegration")(), "Nmap")
-        tabs.addTab(lazy("addons.modules.siem","SIEM")(), "SIEM")
-        tabs.addTab(lazy("addons.modules.edr","EDR")(), "EDR")
-        tabs.addTab(lazy("addons.modules.soar","SOAR")(), "SOAR")
-        tabs.addTab(lazy("addons.modules.pentest","Pentest")(), "Pentest")
-        tabs.addTab(lazy("addons.modules.dlp","DLP")(), "DLP")
-        tabs.addTab(lazy("addons.modules.threatintel","ThreatIntel")(), "Threat Intel")
-        tabs.addTab(lazy("addons.modules.compliance","Compliance")(), "Compliance")
-        tabs.addTab(lazy("addons.modules.firewall","Firewall")(), "Firewall")
-        tabs.addTab(lazy("addons.modules.netconfig","NetConfig")(), "Net Config")
-        tabs.addTab(lazy("addons.modules.cloud","Cloud")(), "Cloud")
-        tabs.addTab(lazy("addons.modules.forensics","Forensics")(), "Forensics")
-        tabs.addTab(lazy("addons.modules.vulnmgmt","VulnMgmt")(), "Vuln Mgmt")
+
+        modules_to_load = [
+            ("addons.modules.settings", "Settings", "Settings"),
+            ("addons.modules.dashboard", "Dashboard", "Dashboard"),
+            ("addons.modules.nmap_integration", "NmapIntegration", "Nmap"),
+            ("addons.modules.siem", "SIEM", "SIEM"),
+            ("addons.modules.edr", "EDR", "EDR"),
+            ("addons.modules.soar", "SOAR", "SOAR"),
+            ("addons.modules.pentest", "Pentest", "Pentest"),
+            ("addons.modules.dlp", "DLP", "DLP"),
+            ("addons.modules.threatintel", "ThreatIntel", "Threat Intel"),
+            ("addons.modules.compliance", "Compliance", "Compliance"),
+            ("addons.modules.firewall", "Firewall", "Firewall"),
+            ("addons.modules.netconfig", "NetConfig", "Net Config"),
+            ("addons.modules.cloud", "Cloud", "Cloud"),
+            ("addons.modules.forensics", "Forensics", "Forensics"),
+            ("addons.modules.vulnmgmt", "VulnMgmt", "Vuln Mgmt")
+        ]
+
+        for module, cls, label in modules_to_load:
+            try:
+                tabs.addTab(lazy(module, cls)(), label)
+            except Exception as e:
+                print(f"[module loader] could not load {module}: {e}")
+
         lay.addWidget(tabs)
         # Dynamic add-ons
         addons_dir = os.path.join(os.getcwd(), "addons", "modules")
@@ -94,7 +96,7 @@ class Main(QMainWindow):
 
 def run():
     app = QApplication(sys.argv)
-    apply_theme(app, load_cfg())
+    apply_stylesheet(app)
     win = Main(); win.show()
     sys.exit(app.exec_())
 
