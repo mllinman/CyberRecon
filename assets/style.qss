@@ -1,0 +1,54 @@
+/*
+ * Dark-slate + orange theme
+ */
+
+QWidget {
+    background-color: #181a1b;
+    color: white;
+}
+
+QTabWidget::pane {
+    border-top: 2px solid #2d2d2d;
+}
+
+QTabBar::tab {
+    background: #2d2d2d;
+    border: 1px solid #181a1b;
+    padding: 10px;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+    background: #181a1b;
+    border-top-color: orange;
+}
+
+QPushButton {
+    background-color: #2d2d2d;
+    border: 1px solid #181a1b;
+    padding: 5px;
+}
+
+QPushButton:hover {
+    background-color: #3d3d3d;
+}
+
+QPushButton:pressed {
+    background-color: #1d1d1d;
+}
+
+QTextEdit, QLineEdit {
+    background-color: #141414;
+    border: 1px solid #2d2d2d;
+}
+
+QStatusBar {
+    background-color: #2d2d2d;
+}
+
+QMenuBar {
+    background-color: #2d2d2d;
+}
+
+QMenu {
+    background-color: #2d2d2d;
+}
