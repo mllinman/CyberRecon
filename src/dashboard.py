@@ -8,7 +8,9 @@ from soar_module import SOARTab
 from pentest_tools import PentestTab
 from dlp_module import DLPModule
 from threatintel_module import ThreatIntelTab
-from compliance_tab_open_csv import ComplianceTab
+from compliance_module import ComplianceTab
+from cloud_connector import CloudConnector
+from dashboard_builder import DashboardBuilder
 
 class Dashboard:
     def __init__(self, master):
@@ -23,6 +25,8 @@ class Dashboard:
         self.add_tab("DLP", DLPModule)
         self.add_tab("Threat Intel", ThreatIntelTab)
         self.add_tab("Compliance", ComplianceTab)
+        self.add_tab("Cloud", CloudConnector)
+        self.add_tab("Dashboard Builder", DashboardBuilder)
 
     def add_tab(self, name, tab_class):
         frame = ttk.Frame(self.notebook)
