@@ -1,6 +1,0 @@
-This application uses external tools for some of its features.
-Please download and install them from the following links:
-
-- nmap: https://nmap.org/download
-- snort: https://www.snort.org/downloads
-- tshark (wireshark): https://www.wireshark.org/download.html
